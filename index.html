@@ -3,8 +3,11 @@
 		<script>
 			z = "4567";
 			function play(form) {
-				alert("Загадано число " + z);
-				form.game.value = 'Hi';
+				y = form.game.value;
+				b = 0;
+				c = 0;
+				alert("Число " + y + " содержит " + String(b) + " Быков и " + String(c-b) + " Коров");
+				form.game.value = '';
 				return false;
 			}
 		</script>

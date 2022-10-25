@@ -1,8 +1,11 @@
 <html>
 	<head>
 		<script>
-			z = Array.from("0123456789");
-			z.sort(()=>Math.random()-0.5);
+			z = Array.from("0123456789")
+			z.sort(()=>Math.random()-0.5)
+			if (z[0] == "0"){
+				z[0] = z[9];
+			}
 			function play(form) {
 				y = form.game.value;
 				b = 0;
@@ -15,7 +18,8 @@
 						c = c + 1;
 					}
 				}
-				alert(z + "\nЧисло " + y + " содержит " + String(b) + " Быков и " + String(c-b) + " Коров");
+				oldText = document.querySelector('#result1').outerHTML;
+				document.querySelector('#result1').outerHTML  =oldText + '<br>' + "Число " + y + " содержит " + String(b) + " Быков и " + String(c-b) + " Коров";
 				form.game.value = '';
 				return false;
 			}
@@ -25,5 +29,8 @@
 		<form method="POST" action="" onsubmit="return play(this)">
 			<input name="game" value="">
 		</form>
+		<div id="result1">
+			Результаты:
+		</div>
 	</body>
 </html>
